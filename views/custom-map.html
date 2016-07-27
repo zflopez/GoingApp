@@ -1,0 +1,48 @@
+<div ng-controller="loadMapController">
+	<select id="dropdown" ng-model="categoryOrder" class="form-control" style="width: 10%;">
+		<option value="0">Todos</option>
+		<option ng-repeat="category in categories" value="{{category}}">{{category}}</option>
+	</select>
+
+	<ui-gmap-google-map center='map.center' zoom='map.zoom' aria-label="Google map" pan="true">
+
+			<!-- <ui-gmap-markers models="map.markers" idKey="'id'" coords="'self'" events="map.markersEvents">
+				<ui-gmap-window show="map.window.show" coords="map.window.model" ng-cloak>
+					<div>
+						<p><img ng-src="{{image}}" alt="{{name}}" style="width: 200px; height: 150px; border-radius: 5px;"></p>
+						<p><strong>{{name}}</strong></p>
+						<p>{{address}}</p>
+						<p><a ng-href="{{website}}">Website</a></p>
+						<p><span class="glyphicon glyphicon-plus"> </span><a href="#/"> Profile</a></p>
+					</div>
+				</ui-gmap-window>
+			</ui-gmap-markers> -->
+			
+
+		<ui-gmap-marker ng-repeat="marker in locations | filter:categoryOrder" coords="{latitude: marker.latitude, longitude: marker.longitude}" options="marker.options" events="map.markersEvents" idkey="marker.id" >
+			<ui-gmap-window ng-cloak>
+				<div class="markerWindow">
+					<p><img ng-src="{{marker.image}}" alt="{{marker.name}}" style="width: 200px; height: 150px; border-radius: 5px;"></p>
+					<p><strong>{{marker.name}}</strong></p>
+					<p>{{marker.address}}</p>
+					<p><a ng-href="{{marker.website}}">Website</a></p>
+					<p><span class="glyphicon glyphicon-plus"> </span><a href="#/profile/location/{{marker.id}}"> Profile</a></p>
+				</div>
+			</ui-gmap-window>
+		</ui-gmap-marker>
+
+	</ui-gmap-google-map>
+
+
+	<!-- <ul>
+		<li ng-repeat="location in locations | filter:categoryOrder" ng-class="{selected: location == map.window.model}" ng-click="map.window.model = location">
+			<p>{{location.name}}</p>
+		</li>
+	</ul> -->
+
+	<ul class="list-inline">
+		<li class="location-list" ng-repeat="location in locations | filter:categoryOrder">
+			<p>{{location.name}}</p>
+		</li>
+	</ul>
+</div>

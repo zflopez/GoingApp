@@ -1,5 +1,6 @@
 body {
-    background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/10/21/20181/cad2441dd3252cf53f12154412286ba0.jpg');
+    /*background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/10/21/20181/cad2441dd3252cf53f12154412286ba0.jpg');*/
+    background-color: #B4D4DD;    
     padding:50px;
 }
 
@@ -65,10 +66,9 @@ body {
 }
 
 .angular-google-map-container { 
-    height: 400px; 
+    height: 400px;
     width: 800px;
     text-align: center;
-
 }
 
 
@@ -86,6 +86,67 @@ body {
 .selected {
     background: #ddd;
 }
+
+
+#success_message {
+   display: none;
+}
+
+.markerWindow {
+    font-size: 14px;
+    width:250px;
+}
+
+
+
+
+
+.card2 {
+    margin-bottom: : 30px;
+}
+
+.card2 div {
+    border-radius: 4px;
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75);
+    overflow: hidden; 
+}
+
+.card2 .cardhead {
+    background: url('//lorempixel.com/800/300/business') no-repeat center top;
+    background-size: cover;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.75);
+    overflow: hidden;
+    position: relative;
+    border: none;
+    display: flex;
+    min-height: 160px;
+    max-height: 200px;
+}
+
+.card2 .cardhead .cardtitles {
+    background: rgba(0,0,0,.25);
+    padding: 0px 8px;
+    width: 100%;
+    // this isn't working properly.
+    // it's supposed to keep a constant
+    // height and align the titles 
+    // to the bottom, but right now
+    // the titles have padding to push
+    // up the height of this div.
+    align-self: flex-end;
+}
+
+.card2 .cardhead .cardtitles h3, h4 {
+    color: #fff;
+}
+
+.cardcontent {
+    padding: 16px 8px;
+    background-color: #fafafa;
+}
+
+
 
 
 

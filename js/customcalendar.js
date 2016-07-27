@@ -633,6 +633,7 @@ angular.module('calendarModule', ['ui.calendar', 'ui.bootstrap'])
 		/* alert on eventClick */
 		$scope.alertOnEventClick = function(date, jsEvent, view) {
 			$scope.alertMessage = (date.title + " - " + moment(date.start).format('LL') + " - " + date.timetable + " - " + date.price + " - " + date.location);
+			//$scope.alertMessage = date;
 		};
 		
 		/* Change View */

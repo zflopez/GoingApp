@@ -1,39 +1,81 @@
-var app = angular.module('myApplicationModule', ['mapModule', 'calendarModule', 'ngRoute']);
+var app = angular.module('myApplicationModule', [
+	'mapModule', 
+	'calendarModule', 
+	'locationViewModule', 
+	'contactModule', 
+	'ngRoute', 
+	'ngStorage', 
+	'ngCookies'
+	]);
 
-
-/*app.config(['$routeProvider', function($routeProvider) {
+app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
-	.when('/', {	//funciona sobre la url raíz
-		templateUrl: 'views/expenses.html',
-		controller: 'ExpensesViewController'	//puedo poner un controller que esté en otro JS
+	.when('/', {
+		templateUrl: 'views/home.html',
+		controller: 'HomeViewController'
 	})
-	.when('/expenses', {
-		templateUrl: 'views/expenses.html',
-		controller: 'ExpensesViewController'
+	.when('/contact', {
+		templateUrl: 'views/contact.html',
+		controller: 'ContactViewController'
 	})
-	.when('/expenses/new', {		// añade UN gasto, de ahí expense en singular, son diferentes controllers
-		templateUrl: 'views/expenseForm.html',
-		controller: 'NewEditExpenseViewController'
+	// .when('/profile/:user', {		
+	// 	templateUrl: 'views/userProfile.html',
+	// 	controller: 'NewEditExpenseViewController'
+	// })
+	.when('/register', {
+		templateUrl: 'views/register.html',
+		controller: 'RegisterController'
 	})
-	.when('/expenses/edit/:id', {		// : indica que vamos a pasarle parámetros, podría ser cualquier cosa
-		templateUrl: 'views/expenseForm.html',
-		controller: 'NewEditExpenseViewController'
+	.when('/profile/location/:id', {
+		templateUrl: 'views/locationView.html',
+		controller: 'LocationViewController'
 	})
 	.otherwise({
 		redirectTo: '/'
 	})
-}])*/
-
-
+}]);
 
 app.controller('HomeViewController', ['$scope', function($scope){		// meter en otro JS e inyectar module
 	$scope.appTitle = "GoingApp"; 
 }]);
+
+app.controller('RegisterController', ['$scope', '$location', function($scope, $location){
+	$scope.submitForm = function() {
+		if ($scope.userForm.$valid) {
+			alert('our form is amazing');
+			//$location.url("/#/")
+		}
+	}
+}]);
+
+
 
 
 app.directive('customHeader', function(){
 	return {
 		restrict:'E',
 		templateUrl: 'views/header.html'
+		//controller:
+	}
+});
+
+app.directive('customFooter', function(){
+	return {
+		restrict:'E',
+		templateUrl: 'views/footer.html'
+	}
+});
+
+app.directive('customMap', function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'views/custom-map.html'
+	}
+});
+
+app.directive('customCalendar', function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'views/custom-calendar.html'
 	}
 });
