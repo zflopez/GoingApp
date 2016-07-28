@@ -31,7 +31,7 @@ angular.module('mapModule', ['uiGmapgoogle-maps'])
 			latitude: 37.395400, 
 			longitude: -5.984930 
 		}, 
-		zoom: 12, 
+		zoom: 13, 
 		window: {
 			model: {},
 			show: false,

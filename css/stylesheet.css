@@ -1,7 +1,15 @@
 body {
-    /*background:url('http://www.wallpaperup.com/uploads/wallpapers/2012/10/21/20181/cad2441dd3252cf53f12154412286ba0.jpg');*/
-    background-color: #B4D4DD;    
+    background:url('../img/background/background.png');
+    background-repeat: no-repeat;
+    width: 100%;
     padding:50px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main{
+    flex: 1 0 auto;
 }
 
 #login-dp {
@@ -66,8 +74,8 @@ body {
 }
 
 .angular-google-map-container { 
-    height: 400px;
-    width: 800px;
+    height: 600px;
+    width: 100%;
     text-align: center;
 }
 
@@ -112,7 +120,6 @@ body {
 }
 
 .card2 .cardhead {
-    background: url('//lorempixel.com/800/300/business') no-repeat center top;
     background-size: cover;
     border-radius: 4px 4px 0px 0px;
     box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.75);
@@ -137,14 +144,16 @@ body {
     align-self: flex-end;
 }
 
-.card2 .cardhead .cardtitles h3, h4 {
+/*.card2 .cardhead .cardtitles h3, h4 {
     color: #fff;
-}
+}*/
 
 .cardcontent {
     padding: 16px 8px;
     background-color: #fafafa;
 }
+
+
 
 
 
@@ -168,31 +177,39 @@ body {
     transition: opacity 0.15s linear;
 }
 
+
+
+
 /*** Calendar ***/
 
+.box {
+    width: 20px;
+    height: 20px;
+    margin-top: 2em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    border-radius: 4px;
+}
+
+.colorSquareMusic {
+    background-color: #487FDD;
+}
+
+.colorSquareTheatre {
+    background-color: #FF8921;
+}
+
+.colorSquareMuseum {
+    background-color: #62D17F;
+}
+
 .calAlert{
-    width: 300px; float: left; margin-bottom: 5px;
+    float: left; 
+    margin-bottom: 5px;
+    width: 300px; 
+    margin-top: 3em; 
+    margin-left: 2em;
+    box-shadow: 4px 4px 11px #888888;
+    padding: 1em;
+    border-radius: 4px;
 }
-
-.calXBtn{
-    float: right; margin-top: -5px; margin-right: -5px;
-}
-
-.calWell{
-    float: left; margin-bottom: 40px;
-}
-
-.fc-event.openSesame .fc-event-skin{
-    background-color: rgb(229, 229, 11);
-    color: black;
-}
-
-.fc-event.customFeed .fc-event-skin{
-    background-color: rgb(132, 222, 175);
-    color: black;
-}
-
-.calTools{
-    margin-bottom: 10px;
-}
-

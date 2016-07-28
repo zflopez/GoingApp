@@ -3,7 +3,7 @@ angular.module('contactModule', [])
 
 .controller('ContactViewController', ['$scope', function($scope){
 
-	  $(document).ready(function() {
+ $(document).ready(function() {
     $('#contact_form').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
@@ -14,51 +14,51 @@ angular.module('contactModule', [])
         fields: {
             first_name: {
                 validators: {
-                        stringLength: {
+                    stringLength: {
                         min: 2,
                     },
-                        notEmpty: {
+                    notEmpty: {
                         message: 'Please supply your first name'
                     }
                 }
             },
-             last_name: {
+            last_name: {
                 validators: {
-                     stringLength: {
-                        min: 2,
-                    },
-                    notEmpty: {
-                        message: 'Please supply your last name'
-                    }
-                }
-            },
-            email: {
-                validators: {
-                    notEmpty: {
-                        message: 'Please supply your email address'
-                    },
-                    emailAddress: {
-                        message: 'Please supply a valid email address'
-                    }
-                }
-            },
-            comment: {
-                validators: {
-                      stringLength: {
-                        min: 10,
-                        max: 200,
-                        message:'Please enter at least 10 characters and no more than 200'
-                    },
-                    notEmpty: {
-                        message: 'Please supply a description of your project'
-                    }
-                    }
+                   stringLength: {
+                    min: 2,
+                },
+                notEmpty: {
+                    message: 'Please supply your last name'
                 }
             }
-        })
-        .on('success.form.bv', function(e) {
+        },
+        email: {
+            validators: {
+                notEmpty: {
+                    message: 'Please supply your email address'
+                },
+                emailAddress: {
+                    message: 'Please supply a valid email address'
+                }
+            }
+        },
+        comment: {
+            validators: {
+              stringLength: {
+                min: 10,
+                max: 200,
+                message:'Please enter at least 10 characters and no more than 200'
+            },
+            notEmpty: {
+                message: 'Please supply a description of your project'
+            }
+        }
+    }
+}
+})
+    .on('success.form.bv', function(e) {
             $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-                $('#contact_form').data('bootstrapValidator').resetForm();
+            $('#contact_form').data('bootstrapValidator').resetForm();
 
             // Prevent form submission
             e.preventDefault();
@@ -74,6 +74,6 @@ angular.module('contactModule', [])
             //     console.log(result);
             // }, 'json');
         });
-    });
+});
 
 }]);

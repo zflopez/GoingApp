@@ -1,10 +1,19 @@
-<div ng-controller="loadMapController">
-	<select id="dropdown" ng-model="categoryOrder" class="form-control" style="width: 10%;">
-		<option value="0">Todos</option>
-		<option ng-repeat="category in categories" value="{{category}}">{{category}}</option>
-	</select>
+<div class="container-fluid">
+	<div ng-controller="loadMapController">
+		
+		<section style="text-align: center; margin-top: 3em;">
+			<h1><i class="glyphicon glyphicon-map-marker"></i> ¿Qué buscas?</h1>
+			<h4>Encuentra los puntos más cercanos según tus preferencias</h4>
+			<h6>Clica sobre ellos para obtener más información</h6>
 
-	<ui-gmap-google-map center='map.center' zoom='map.zoom' aria-label="Google map" pan="true">
+			<select id="dropdown" ng-model="categoryOrder" class="form-control selectpicker" style="width: 20em; display: block; margin: 1em auto;">
+				<option value="0">Todos</option>
+				<option ng-repeat="category in categories" value="{{category}}">{{category}}</option>
+			</select>
+		</section>
+		
+		<div class="well" style="background-color: #f5f5f5">
+			<ui-gmap-google-map center='map.center' zoom='map.zoom' aria-label="Google map" pan="true">
 
 			<!-- <ui-gmap-markers models="map.markers" idKey="'id'" coords="'self'" events="map.markersEvents">
 				<ui-gmap-window show="map.window.show" coords="map.window.model" ng-cloak>
@@ -19,30 +28,33 @@
 			</ui-gmap-markers> -->
 			
 
-		<ui-gmap-marker ng-repeat="marker in locations | filter:categoryOrder" coords="{latitude: marker.latitude, longitude: marker.longitude}" options="marker.options" events="map.markersEvents" idkey="marker.id" >
-			<ui-gmap-window ng-cloak>
-				<div class="markerWindow">
-					<p><img ng-src="{{marker.image}}" alt="{{marker.name}}" style="width: 200px; height: 150px; border-radius: 5px;"></p>
-					<p><strong>{{marker.name}}</strong></p>
-					<p>{{marker.address}}</p>
-					<p><a ng-href="{{marker.website}}">Website</a></p>
-					<p><span class="glyphicon glyphicon-plus"> </span><a href="#/profile/location/{{marker.id}}"> Profile</a></p>
-				</div>
-			</ui-gmap-window>
-		</ui-gmap-marker>
+				<ui-gmap-marker ng-repeat="marker in locations | filter:categoryOrder" coords="{latitude: marker.latitude, longitude: marker.longitude}" options="marker.options" events="map.markersEvents" idkey="marker.id" >
+					<ui-gmap-window ng-cloak>
+						<div class="markerWindow">
+							<p><img ng-src="{{marker.image}}" alt="{{marker.name}}" style="width: 200px; height: 150px; border-radius: 5px;"></p>
+							<p><strong>{{marker.name}}</strong></p>
+							<p>{{marker.address}}</p>
+							<p><i class="fa fa-external-link" aria-hidden="true"></i><a ng-href="{{marker.website}}"> Página web</a></p>
+							<p><span class="glyphicon glyphicon-plus"> </span><a href="#/profile/location/{{marker.id}}"> Información y Eventos</a></p>
+						</div>
+					</ui-gmap-window>
+				</ui-gmap-marker>
 
-	</ui-gmap-google-map>
+			</ui-gmap-google-map>
+		</div>
 
 
-	<!-- <ul>
-		<li ng-repeat="location in locations | filter:categoryOrder" ng-class="{selected: location == map.window.model}" ng-click="map.window.model = location">
-			<p>{{location.name}}</p>
-		</li>
-	</ul> -->
+		<!-- <ul>
+			<li ng-repeat="location in locations | filter:categoryOrder" ng-class="{selected: location == map.window.model}" ng-click="map.window.model = location">
+				<p>{{location.name}}</p>
+			</li>
+		</ul> -->
 
-	<ul class="list-inline">
-		<li class="location-list" ng-repeat="location in locations | filter:categoryOrder">
-			<p>{{location.name}}</p>
-		</li>
-	</ul>
+		<ul class="list-inline">
+			<li class="location-list" ng-repeat="location in locations | filter:categoryOrder">
+				<p>{{location.name}}</p>
+			</li>
+		</ul>
+	</div>
 </div>
+

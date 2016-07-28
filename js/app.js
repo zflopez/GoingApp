@@ -11,6 +11,10 @@ var app = angular.module('myApplicationModule', [
 app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 	.when('/', {
+		templateUrl: 'views/landingpage.html',
+		controller: 'HomeViewController'
+	})
+	.when('/home', {
 		templateUrl: 'views/home.html',
 		controller: 'HomeViewController'
 	})
@@ -42,8 +46,8 @@ app.controller('HomeViewController', ['$scope', function($scope){		// meter en o
 app.controller('RegisterController', ['$scope', '$location', function($scope, $location){
 	$scope.submitForm = function() {
 		if ($scope.userForm.$valid) {
-			alert('our form is amazing');
-			//$location.url("/#/")
+			//alert('our form is amazing');
+			$location.url("/#/home")
 		}
 	}
 }]);
