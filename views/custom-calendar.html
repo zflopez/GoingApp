@@ -1,32 +1,33 @@
 <div class="container-fluid">
 	<section id="directives-calendar" ng-controller="CalendarCtrl">
 
-		<div style="text-align: center; margin-top: 4em; margin-bottom: 2em;">
+		<div class="calendarHeader">
 			<h1 style=""><i class="glyphicon glyphicon-calendar"></i> Calendario de eventos</h1>
-			<h4>Consulta los eventos de tu ciudad</h4>
-			<h6>Clica sobre ellos para obtener más información</h6>
+			<h3>Consulta los eventos de tu ciudad</h3>
+			<h4>Clica sobre ellos para obtener más información</h4>
 		</div>
 
-		<div class="well" style="background-color: #f5f5f5">
+		<div class="well calendarBox">
 			<div class="col-xs-3">
 				<div>
 					<div class="legend">
-						<div class="box colorSquareMusic"><span style="margin-left: 2.5em;"> Música</span></div>
-						<div class="box colorSquareTheatre"><span style="margin-left: 2.5em;"> Teatro</span></div>
-						<div class="box colorSquareMuseum"><span style="margin-left: 2.5em;"> Exposiciones</span></div>
+						<div class="box colorSquareMusic"><span class="legendText"> Música</span></div>
+						<div class="box colorSquareTheatre"><span class="legendText"> Teatro</span></div>
+						<div class="box colorSquareMuseum"><span class="legendText"> Exposiciones</span></div>
 					</div>
 
 					<div class="alert-success calAlert" ng-show="alertMessage != undefined && alertMessage != ''">
-						<h4 style="margin-bottom: 1em;">{{alertMessage.title}}</h4>
+						<h4>{{alertMessage.title}}</h4>
 						<p><strong>Fecha: </strong>{{alertaMessagestart}}</p>
 						<p><strong>Horario: </strong>{{alertMessage.timetable}}</p>
 						<p><strong>Ubicación: </strong>{{alertMessage.location}}</p>
 						<p><strong>Precio: </strong>{{alertMessage.price}}</p>
+						<p class="addeventbutton"><button class="btn btn-success">Añadir a mi lista</button></p>
 					</div>
 
 				</div>
 			</div>
-			<div class="col-xs-9" style="background-color: #fff; border-radius: 4px; padding-top:1em; padding-bottom:1em; cursor: pointer;">
+			<div class="col-xs-9 calendarContainer">
 				<tabset>
 					<tab active select="renderCalendar('myCalendar');">
 						<div class="calendar" ng-model="eventSources" calendar="myCalendar" ui-calendar="uiConfig.calendar" ng-if="eventSources"></div>

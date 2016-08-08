@@ -1,26 +1,26 @@
 <div class="container">
-	<div class="col-md-8 col-md-offset-2 card2">
+	<div class="col-md-10 col-md-offset-1 card2">
 		<div ng-repeat = "place in locations | filter : {id: id}">
-			<div class="cardhead" style="background: url('{{place.image}}') no-repeat center top;">
+			<img ng-src="{{place.image}}" alt="{{place.name}}" class="placeImage">
+			<div class="cardhead">
 				<div class="cardtitles">
 					<h3>{{place.name}}</h3>	
 				</div>
 			</div>
 			<div class="cardcontent">
-				<div>
+				<div class="locationInfo">
 					<p><strong>Página web:</strong> <a href="{{place.website}}">Website</a></p>
 					<p><strong>Horarios:</strong> <span>{{place.info}}</span></p>
 					<p><strong>Dirección:</strong> <span>{{place.address}}</span></p>
 					<p><strong>Contacto:</strong> <span>{{place.phonenumber}}</span></p>
 				</div>
-				<section ng-repeat="show in place.events" >
-					<div class="col-md-6 eventCard">
-						<p>{{show.title}}</p>
-						<p>{{show.timetable}}</p>
-						<p>{{show.price}}</p>
-						<p>{{show.start | date:'dd MMMM yyyy'}}</p>
-						<p>{{show.end | date:'dd MMMM yyyy'}}</p>
-						<button>Añadir a mi lista</button>
+				<section class="eventcardlist">
+					<div ng-repeat="show in place.events" class="col-md-4 eventCard">
+						<h4>{{show.title}}</strong></h4>
+						<p><strong>Horario: </strong>{{show.timetable}}</p>
+						<p><strong>Precio: </strong>{{show.price}}</p>
+						<p><strong>Fecha: </strong>{{show.start | date:'dd MMMM yyyy'}} - {{show.end | date:'dd MMMM yyyy'}}</p>
+						<p class="addeventbutton"><button class="btn btn-success">Añadir a mi lista</button></p>
 					</div>
 				</section>
 			</div>	

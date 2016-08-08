@@ -13,7 +13,7 @@ angular.module('mapModule', ['uiGmapgoogle-maps'])
 
 		var sorted_categories = category.sort();
 
-		$scope.categories = [];
+		$scope.categories = [];			// array with json different categories, ordered by name
 
 		for (var i = 0; i < category.length; i++){
 			if (sorted_categories[i+1] != sorted_categories[i]){
@@ -22,12 +22,11 @@ angular.module('mapModule', ['uiGmapgoogle-maps'])
 		};
 
 		$scope.map.markers = data;
-		console.log($scope.map.markers);
 	});
 
 
 	$scope.map = { 
-		center: { 
+		center: { 		// ui gmap needs $scope.map.center to initialize
 			latitude: 37.395400, 
 			longitude: -5.984930 
 		}, 
@@ -48,8 +47,8 @@ angular.module('mapModule', ['uiGmapgoogle-maps'])
 		}
 	};
 
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(pos) {
+	if (navigator.geolocation) {		
+		navigator.geolocation.getCurrentPosition(function(pos) {		// gets user current position 
 			$scope.map.center = {
 				latitude:pos.coords.latitude,
 				longitude: pos.coords.longitude

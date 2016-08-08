@@ -2,7 +2,9 @@ var app = angular.module('myApplicationModule', [
 	'mapModule', 
 	'calendarModule', 
 	'locationViewModule', 
-	'contactModule', 
+	'contactModule',
+	'homeModule',
+	'registrationModule', 
 	'ngRoute', 
 	'ngStorage', 
 	'ngCookies'
@@ -11,10 +13,6 @@ var app = angular.module('myApplicationModule', [
 app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 	.when('/', {
-		templateUrl: 'views/landingpage.html',
-		controller: 'HomeViewController'
-	})
-	.when('/home', {
 		templateUrl: 'views/home.html',
 		controller: 'HomeViewController'
 	})
@@ -22,10 +20,10 @@ app.config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'views/contact.html',
 		controller: 'ContactViewController'
 	})
-	// .when('/profile/:user', {		
-	// 	templateUrl: 'views/userProfile.html',
-	// 	controller: 'NewEditExpenseViewController'
-	// })
+	/*.when('/profile/:user', {							// working on user profile after registration and login
+		templateUrl: 'views/userProfile.html',
+		controller: 'NewEditExpenseViewController'
+	})*/
 	.when('/register', {
 		templateUrl: 'views/register.html',
 		controller: 'RegisterController'
@@ -38,22 +36,6 @@ app.config(['$routeProvider', function($routeProvider) {
 		redirectTo: '/'
 	})
 }]);
-
-app.controller('HomeViewController', ['$scope', function($scope){		// meter en otro JS e inyectar module
-	$scope.appTitle = "GoingApp"; 
-}]);
-
-app.controller('RegisterController', ['$scope', '$location', function($scope, $location){
-	$scope.submitForm = function() {
-		if ($scope.userForm.$valid) {
-			//alert('our form is amazing');
-			$location.url("/#/home")
-		}
-	}
-}]);
-
-
-
 
 app.directive('customHeader', function(){
 	return {

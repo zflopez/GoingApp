@@ -8,9 +8,12 @@ body {
     flex-direction: column;
 }
 
-main{
+main {
     flex: 1 0 auto;
 }
+
+
+/*** Top Navbar ***/
 
 #login-dp {
     min-width: 250px;
@@ -73,111 +76,43 @@ main{
     }
 }
 
+
+/*** Carousel ***/
+
+.carousel {
+    margin-top: 2em;
+}
+
+
+/*** Map ***/
+
 .angular-google-map-container { 
     height: 600px;
     width: 100%;
     text-align: center;
 }
 
+.mapHeader {
+    text-align: center; 
+    margin-top: 3em;
+}
 
-.location-list {
+.selectpicker {
+    width: 20em; 
+    display: block; 
+    margin: 1em auto; 
+    font-size:16px;
+}
+
+.mapBox {
+    background-color: #f5f5f5;
+}
+
+.markerImage {
+    width: 200px; 
+    height: 150px; 
     border-radius: 5px;
-    padding: 5px;
-    margin: 4px;
-    border: 1px solid #e1e8ed; 
-    background-color: #f5f8fa;
-    background-image: linear-gradient(#fff,#f5f8fa);
 }
-
-
-
-.selected {
-    background: #ddd;
-}
-
-
-#success_message {
-   display: none;
-}
-
-.markerWindow {
-    font-size: 14px;
-    width:250px;
-}
-
-
-
-
-
-.card2 {
-    margin-bottom: : 30px;
-}
-
-.card2 div {
-    border-radius: 4px;
-    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.75);
-    overflow: hidden; 
-}
-
-.card2 .cardhead {
-    background-size: cover;
-    border-radius: 4px 4px 0px 0px;
-    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.75);
-    overflow: hidden;
-    position: relative;
-    border: none;
-    display: flex;
-    min-height: 160px;
-    max-height: 200px;
-}
-
-.card2 .cardhead .cardtitles {
-    background: rgba(0,0,0,.25);
-    padding: 0px 8px;
-    width: 100%;
-    // this isn't working properly.
-    // it's supposed to keep a constant
-    // height and align the titles 
-    // to the bottom, but right now
-    // the titles have padding to push
-    // up the height of this div.
-    align-self: flex-end;
-}
-
-/*.card2 .cardhead .cardtitles h3, h4 {
-    color: #fff;
-}*/
-
-.cardcontent {
-    padding: 16px 8px;
-    background-color: #fafafa;
-}
-
-
-
-
-
-
-
-.modal-backdrop {
-    overflow: hidden;
-    height: 0;
-    -webkit-transition: opacity 0.15s linear, height 0 0.2s linear;
-    -moz-transition: opacity 0.15s linear, height 0 0.2s linear;
-    -ms-transition: opacity 0.15s linear, height 0 0.2s linear;
-    -o-transition: opacity 0.15s linear, height 0 0.2s linear;
-    transition: opacity 0.15s linear, height 0 0.2s linear;
-}
-.modal-backdrop.in {
-    height: 100%;
-    -webkit-transition: opacity 0.15s linear;
-    -moz-transition: opacity 0.15s linear;
-    -ms-transition: opacity 0.15s linear;
-    -o-transition: opacity 0.15s linear;
-    transition: opacity 0.15s linear;
-}
-
-
 
 
 /*** Calendar ***/
@@ -212,4 +147,150 @@ main{
     box-shadow: 4px 4px 11px #888888;
     padding: 1em;
     border-radius: 4px;
+}
+
+.calAlert h4 {
+    margin-bottom: 1em;
+}
+
+.calendarHeader {
+    text-align: center; 
+    margin-top: 4em; 
+    margin-bottom: 2em;
+}
+
+.calendarContainer {
+    background-color: #fff; 
+    border-radius: 4px; 
+    padding-top:1em; 
+    padding-bottom:1em; 
+    cursor: pointer; 
+    font-size:18px;
+}
+
+.calendarBox {
+    background-color: #f5f5f5;
+}
+
+.legendText {
+    margin-left: 2.5em;
+}
+
+
+/*** Cards on locationView ***/
+
+.card2 {
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+.card2 div {
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
+    overflow: hidden; 
+}
+
+.card2 .cardhead {
+    background-size: cover;
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.75);
+    overflow: hidden;
+    position: relative;
+    border: none;
+    display: inline;
+    min-height: 160px;
+    max-height: 200px;
+}
+
+.card2 .cardhead .cardtitles {
+    background: rgba(0,0,0,.25);
+    padding: 0px 8px;
+    width: 100%;
+    align-self: flex-end;
+}
+
+.placeImage {
+    width: 400px;
+    height: 300px;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card2 .cardhead h3 {
+    color: #fff;
+    text-align: center;
+}
+
+.cardcontent {
+    padding: 16px 8px;
+    background-color: #fafafa;
+}
+
+.locationInfo {
+    text-align: center;
+    font-size: 16px;
+    padding: 1em;
+}
+
+.eventcardlist {
+    margin-top: 1em;
+}
+
+.eventCard {
+    padding: 1em;
+    height: 220px;
+}
+
+.addeventbutton {
+    text-align: center;
+    margin-top: 1em;
+}
+
+
+/*** Footer ***/
+
+.githubLink {
+    margin-left: 0.5em;    
+}
+
+
+
+
+
+.location-list {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 4px;
+    border: 1px solid #e1e8ed; 
+    background-color: #f5f8fa;
+    background-image: linear-gradient(#fff,#f5f8fa);
+}
+
+.selected {
+    background: #ddd;
+}
+
+#success_message {
+   display: none;
+}
+
+
+.modal-backdrop {
+    overflow: hidden;
+    height: 0;
+    -webkit-transition: opacity 0.15s linear, height 0 0.2s linear;
+    -moz-transition: opacity 0.15s linear, height 0 0.2s linear;
+    -ms-transition: opacity 0.15s linear, height 0 0.2s linear;
+    -o-transition: opacity 0.15s linear, height 0 0.2s linear;
+    transition: opacity 0.15s linear, height 0 0.2s linear;
+}
+.modal-backdrop.in {
+    height: 100%;
+    -webkit-transition: opacity 0.15s linear;
+    -moz-transition: opacity 0.15s linear;
+    -ms-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
 }
